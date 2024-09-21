@@ -165,6 +165,7 @@ Model pada Django disebut sebagai ORM (Object-Relational Mapping) karena berfung
 
 <details>
   <summary>TUGAS 4</summary>
+  
 **1\. Apa itu Django `UserCreationForm`, dan jelaskan apa kelebihan dan kekurangannya?**
 
 Django UserCreationForm adalah formulir bawaan dari Django yang digunakan untuk membuat pengguna baru dalam aplikasi web. Formulir ini menyediakan tiga bidang utama: username, password, dan konfirmasi password
