@@ -6,7 +6,6 @@
 <h5>Kelas:</h5>
 <p>{{ class }}</p>
 
-... 
 {% if not products %}
 <p>Belum ada produk.</p>
 {% else %}
@@ -35,4 +34,12 @@
 <a href="{% url 'main:product_entry' %}">
   <button>Add New Product</button>
 </a>
+
+<a href="{% url 'main:logout' %}">
+  <button>Logout</button>
+</a>
+
+<h5>User: {{ name }}</h5>
+<h5>Sesi terakhir login: {{ last_login }}</h5>
+
 {% endblock content %}
