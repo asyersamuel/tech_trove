@@ -14,8 +14,3 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
-    # INI BElUM DI MIGRATE!!
-    # Jika terjadi perubahan model
-    # python manage.py makemigrations
-    # python manage.py migrate
-    # 
