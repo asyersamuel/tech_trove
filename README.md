@@ -222,7 +222,7 @@ Dengan menjaga praktik keamanan seperti menggunakan atribut HttpOnly, SameSite, 
 - **Membuat dua akun pengguna dengan masing-masing tiga _dummy data_ menggunakan model yang telah dibuat pada aplikasi sebelumnya untuk setiap akun di lokal.**
   Saya membuat dua akun pengguna pada aplikasi yang saya bangun secara lokal. Saya memanfaatkan fitur _UserCreationForm_ dari Django untuk memudahkan pembuatan akun tersebut. Setelah itu, saya menjalankan aplikasi pada _local server_ dan melakukan registrasi untuk dua akun pengguna dengan informasi berbeda.
 
-  Setelah akun pengguna selesai dibuat, saya login ke masing-masing akun dan memasukkan tiga data _dummy_ sesuai dengan model yang telah saya buat sebelumnya. Data ini meliputi atribut seperti nama, harga, dan deskripsi yang saya isi secara acak untuk setiap akun. Setelah itu, saya memastikan bahwa semua data _dummy_ yang dimasukkan berhasil disimpan ke dalam database lokal melalui ORM Django.
+  Setelah akun pengguna selesai dibuat, saya login ke masing-masing akun dan memasukkan tiga data _dummy_ sesuai dengan model yang telah saya buat sebelumnya. Data ini meliputi atribut seperti nama, harga, kuantitas, dan deskripsi yang saya isi secara acak untuk setiap akun. Setelah itu, saya memastikan bahwa semua data _dummy_ yang dimasukkan berhasil disimpan ke dalam database lokal melalui ORM Django.
 
 - **Menghubungkan model `Product` dengan `User`.**  
   Untuk menghubungkan model **Product** dengan **User** dalam aplikasi Django, saya mulai dengan menambahkan relasi yang sesuai pada model **Product**. Dalam file **models.py**, saya memperbarui model **Product** untuk mencakup field baru yang merujuk ke model **User**. Saya menggunakan `ForeignKey` untuk mendefinisikan hubungan satu-ke-banyak antara **User** dan **Product**, di mana satu pengguna bisa memiliki banyak produk. Field ini dinamai **user** dan dikonfigurasi sebagai opsional dengan parameter `null=True` dan `blank=True`. Dengan menambahkan field ini, setiap produk yang dibuat dalam aplikasi dapat dikaitkan dengan pengguna tertentu.  
@@ -232,6 +232,11 @@ Dengan menjaga praktik keamanan seperti menggunakan atribut HttpOnly, SameSite, 
 - **Menampilkan detail informasi pengguna yang sedang _logged in_ seperti _username_ dan menerapkan `cookies` seperti `last login` pada halaman utama aplikasi.**  
   Langkah pertama yang saya ambil adalah memperbarui tampilan halaman utama aplikasi untuk menampilkan nama pengguna yang saat ini sedang login. Dengan memanfaatkan **request.user** di dalam view, saya bisa mendapatkan informasi tentang pengguna yang sedang aktif dan meneruskannya ke template HTML. Di template, saya menampilkan nama pengguna dengan menggunakan sintaks **{{ user.username }}**, sehingga pengguna dapat melihat informasi pribadi mereka secara langsung.  
   Selanjutnya, saya fokus pada implementasi cookies untuk meningkatkan pengalaman pengguna. Saya menambahkan cookie bernama **last_login** pada halaman utama aplikasi. Untuk melakukan ini, saya memperbarui fungsi view untuk menyertakan logika yang menyimpan informasi _last login_ setiap kali pengguna berhasil login. Saya menggunakan **HttpResponse** untuk mengatur cookie dan **request.COOKIES** untuk membaca nilai cookie yang sudah ada. Pada saat login, cookie **last_login** diatur dengan nilai waktu saat login terjadi, dan informasi ini ditampilkan pada halaman utama jika cookie tersebut tersedia. Selain itu, saya memastikan bahwa cookie ini dihapus saat pengguna logout untuk menjaga keamanan data.
+
+Dua akun pengguna dengan masing-masing tiga dummy data
+![image](https://github.com/user-attachments/assets/d62f5ae6-938a-4a20-a71d-dc2c49d164c7)
+![image](https://github.com/user-attachments/assets/b480c8e5-7614-4808-b616-eec6646f0f8b)
+
 
 </details>
 
