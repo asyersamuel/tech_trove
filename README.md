@@ -244,71 +244,166 @@ Dua akun pengguna dengan masing-masing tiga dummy data
 <details>
   <summary>TUGAS 5</summary>
   
-**1\. Apa itu Django `UserCreationForm`, dan jelaskan apa kelebihan dan kekurangannya?**
+**Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!**
 
-Django UserCreationForm adalah formulir bawaan dari Django yang digunakan untuk membuat pengguna baru dalam aplikasi web. Formulir ini menyediakan tiga bidang utama: username, password, dan konfirmasi password
+Pertama, browser akan mempertahankan gaya yang didefinisikan langsung di dalam elemen HTML menggunakan atribut style. Ini disebut sebagai gaya inline. Kemudian, browser akan mempertahankan gaya yang didefinisikan menggunakan selector ID, yaitu selector yang menggunakan simbol # untuk menargetkan elemen dengan atribut id tertentu.
 
-### Kelebihan:
+Selanjutnya, browser akan mempertahankan gaya yang didefinisikan menggunakan selector kelas, atribut, dan pseudo-kelas. Selector kelas menggunakan simbol . untuk menargetkan elemen dengan atribut class tertentu, sedangkan selector atribut dan pseudo-kelas menargetkan elemen berdasarkan atribut atau pseudo-kelasnya (contohnya :hover, :active, dan lain-lain). Terakhir, browser akan mempertahankan gaya yang didefinisikan menggunakan selector elemen dan pseudo-elemen. Selector elemen menargetkan elemen berdasarkan nama tag-nya, sedangkan selector pseudo-elemen menargetkan elemen berdasarkan pseudo-elemen (contohnya :before, :after, dan lain-lain).
 
-1. **Mudah Digunakan:** UserCreationForm sudah siap pakai dan memudahkan pengembang untuk membuat formulir pendaftaran pengguna tanpa perlu menulis kode dari awal.
-2. **Keamanan:** Formulir ini sudah dilengkapi dengan validasi kata sandi dan konfirmasi kata sandi, sehingga membantu mencegah kesalahan umum seperti kata sandi yang tidak cocok.
-3. **Integrasi dengan Django Admin:** Mudah diintegrasikan dengan sistem autentikasi dan administrasi Django, sehingga mempermudah pengelolaan pengguna.
 
-### Kekurangan:
+**Mengapa responsive design menjadi konsep yang penting dalam pengembangan aplikasi web? Berikan contoh aplikasi yang sudah dan belum menerapkan responsive design!**
 
-1. **Keterbatasan Kustomisasi:** Meskipun mudah digunakan, UserCreationForm mungkin memerlukan penyesuaian tambahan jika Anda membutuhkan fitur khusus atau tampilan yang berbeda.
-2. **Tidak Ada Tampilan Bawaan:** Django tidak menyediakan tampilan (view) bawaan untuk menangani pembuatan pengguna, sehingga Anda harus membuat tampilan sendiri untuk menggunakannya
+Responsive design adalah konsep yang penting dalam pengembangan aplikasi web karena memungkinkan website untuk menyesuaikan tampilan dan layoutnya berdasarkan ukuran layar dan perangkat yang digunakan. Ini sangat penting karena:
 
-**2\. Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?**
+-   Banyaknya perangkat yang berbeda: Saat ini, pengguna menggunakan berbagai perangkat seperti smartphone, tablet, laptop, dan desktop untuk mengakses website. Responsive design memastikan bahwa website dapat menyesuaikan diri dengan ukuran layar dan perangkat yang berbeda.
+    
+-   Pengalaman pengguna yang lebih baik: Dengan responsive design, pengguna dapat memiliki pengalaman yang lebih baik ketika mengakses website karena tampilan dan layoutnya dapat menyesuaikan dengan perangkat yang digunakan.
+    
+-   Meningkatkan kemudahan akses: Responsive design memungkinkan website dapat diakses dengan mudah dan nyaman dari berbagai perangkat, sehingga meningkatkan kemudahan akses bagi pengguna.
+    
 
-Autentikasi adalah proses untuk memverifikasi identitas pengguna. Dalam konteks Django, ini biasanya dilakukan melalui nama pengguna dan kata sandi. Ketika pengguna mencoba masuk ke aplikasi, sistem autentikasi akan memeriksa apakah kredensial yang diberikan cocok dengan yang ada di database. Jika cocok, pengguna diizinkan untuk masuk. Autentikasi penting karena memastikan bahwa hanya pengguna yang sah yang dapat mengakses aplikasi, sehingga mencegah akses oleh pihak yang tidak berwenang.
+Contoh Aplikasi yang Sudah Menerapkan Responsive Design
 
-Otorisasi, di sisi lain, adalah proses untuk menentukan hak akses pengguna setelah mereka terautentikasi. Ini berarti setelah pengguna berhasil masuk, sistem akan menentukan apa yang bisa dan tidak bisa dilakukan oleh pengguna tersebut berdasarkan peran atau izin yang mereka miliki. Misalnya, seorang pengguna biasa mungkin hanya bisa melihat dan mengedit profil mereka sendiri, sementara seorang admin bisa mengelola semua profil pengguna. Otorisasi penting karena memastikan bahwa pengguna hanya bisa mengakses data dan fungsi yang sesuai dengan peran mereka, menjaga keamanan dan integritas data.
+-   Facebook: Website Facebook dapat menyesuaikan tampilan dan layoutnya berdasarkan ukuran layar dan perangkat yang digunakan.
+    
+-   Twitter: Website Twitter juga dapat menyesuaikan tampilan dan layoutnya berdasarkan ukuran layar dan perangkat yang digunakan.
+    
 
-Kedua konsep ini sangat penting dalam pengembangan aplikasi web karena mereka bekerja bersama untuk memastikan keamanan dan kontrol akses yang tepat. Autentikasi memastikan bahwa hanya pengguna yang sah yang bisa masuk, sementara otorisasi memastikan bahwa mereka hanya bisa melakukan tindakan yang diizinkan. Dengan kombinasi ini, pengembang dapat mengontrol akses ke berbagai bagian aplikasi berdasarkan peran pengguna, memberikan pengalaman pengguna yang aman dan terkontrol.
+Contoh Aplikasi yang Belum Menerapkan Responsive Design
 
-**3\. Apa itu _cookies_ dalam konteks aplikasi web, dan bagaimana Django menggunakan _cookies_ untuk mengelola data sesi pengguna?**
+-   Old Website: Website yang dibuat beberapa tahun lalu mungkin belum menerapkan responsive design, sehingga tampilan dan layoutnya tidak dapat menyesuaikan dengan ukuran layar dan perangkat yang berbeda.
+    
+-   Government Website: Beberapa website pemerintahan masih belum menerapkan responsive design, sehingga pengguna harus melakukan zoom in dan zoom out untuk dapat membaca konten website dengan nyaman.
+    
 
-Cookies dalam konteks aplikasi web adalah file kecil yang disimpan di browser pengguna untuk menyimpan data seperti preferensi atau informasi sesi. Cookies memungkinkan situs web mengenali pengguna saat mereka kembali, misalnya untuk tetap login atau mengingat pengaturan tertentu.
+**Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut!**
 
-Dalam Django, cookies digunakan untuk mengelola **data sesi pengguna**. Ketika pengguna login atau melakukan interaksi yang membutuhkan sesi, Django membuat sesi unik untuk pengguna tersebut dan menyimpan **ID sesi** dalam cookie di browser mereka. ID ini digunakan untuk melacak aktivitas pengguna selama mereka menggunakan situs web, sementara data sesi yang sebenarnya (misalnya, informasi login) disimpan di server Django. Django menggunakan cookies ini untuk memeriksa apakah pengguna sudah login atau untuk menyimpan informasi lain yang berkaitan dengan sesi, tanpa harus menyimpan data sensitif di cookie itu sendiri.
+Dalam CSS, margin, border, dan padding adalah tiga properti yang digunakan untuk mengatur layout dan tampilan elemen HTML.
 
-**4\.Apakah penggunaan _cookies_ aman secara _default_ dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?**
+-   Margin adalah ruang kosong di sekitar elemen HTML yang memisahkan elemen dari elemen lainnya. Margin dapat digunakan untuk mengatur jarak antara elemen dengan elemen lainnya.
+    
+-   Border adalah garis yang mengelilingi elemen HTML. Border dapat digunakan untuk mengatur ketebalan, gaya, dan warna garis yang mengelilingi elemen.
+    
+-   Padding adalah ruang kosong di dalam elemen HTML yang memisahkan konten dari border. Padding dapat digunakan untuk mengatur jarak antara konten dengan border.
+    
 
-Penggunaan cookies dalam pengembangan web secara default dapat aman, namun ada risiko potensial yang harus diperhatikan. Cookies adalah file kecil yang disimpan di browser pengguna untuk menyimpan informasi seperti preferensi, data login, atau sesi. Secara umum, cookies membantu meningkatkan pengalaman pengguna, tetapi jika tidak dikelola dengan benar, mereka dapat menjadi celah keamanan.
+Cara Mengimplementasikan Margin, Border, dan Padding
 
-Salah satu risiko utama adalah **pencurian cookies** melalui serangan **Cross-Site Scripting (XSS)**, di mana penyerang dapat menyuntikkan skrip berbahaya ke dalam situs web untuk mencuri cookies yang berisi informasi sensitif. Untuk mengurangi risiko ini, pengembang dapat mengaktifkan atribut **HttpOnly** pada cookies, sehingga cookie tersebut tidak dapat diakses melalui JavaScript.
+Dalam css:
+```bash
+box {
+/* Margin */
+margin: 20px; /* mengatur jarak 20px dari elemen lainnya */
 
-Risiko lainnya adalah **Cross-Site Request Forgery (CSRF)**, di mana penyerang menggunakan cookies yang valid untuk menjalankan permintaan berbahaya di situs web atas nama pengguna. Atribut **SameSite** dapat digunakan untuk membatasi pengiriman cookies hanya dalam konteks yang sama, sehingga mencegah serangan ini.
+/* Border */
+border: 1px solid #000; /* mengatur ketebalan 1px, gaya solid, dan warna hitam */
 
-Selain itu, cookies yang tidak dienkripsi dapat disadap oleh pihak ketiga jika transmisi data tidak menggunakan protokol **HTTPS**. Oleh karena itu, mengaktifkan atribut **Secure** untuk memastikan cookie hanya dikirim melalui koneksi terenkripsi sangat penting.
+/* Padding */
+padding: 10px; /* mengatur jarak 10px dari konten dengan border */
+```
+Dalam contoh di atas, kita mengatur margin 20px, border dengan ketebalan 1px, gaya solid, dan warna hitam, serta padding 10px untuk elemen dengan class .box.
 
-Dengan menjaga praktik keamanan seperti menggunakan atribut HttpOnly, SameSite, dan Secure, serta memastikan data dikirim melalui HTTPS, risiko penggunaan cookies dapat diminimalkan. Namun, pengembang harus tetap waspada terhadap potensi serangan yang memanfaatkan kelemahan dalam pengelolaan cookies.
+  
 
-**5\. Jelaskan bagaimana cara kamu mengimplementasikan _checklist_ di atas secara _step-by-step_ (bukan hanya sekadar mengikuti tutorial).**
+**Jelaskan konsep flex box dan grid layout beserta kegunaannya**
 
-- **Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan lancar.**
+### Flexbox (Flexible Box Layout)
 
-  Tahap pertama yang saya lakukan adalah membuat halaman registrasi bagi pengguna baru dengan memanfaatkan formulir bawaan Django, yaitu **UserCreationForm**. Saya menambahkan fungsi `register()` pada _views.py_ sehingga pengguna bisa membuat akun baru dan menyimpan informasi mereka ke dalam database. Setelah registrasi berhasil, saya menambahkan pesan konfirmasi dengan modul **messages**, dan pengguna akan diarahkan ke halaman login.
+Flexbox adalah metode CSS yang dirancang untuk membuat tata letak yang lebih fleksibel dan responsif dalam satu dimensi, baik horizontal (baris) atau vertikal (kolom). Flexbox memungkinkan elemen-elemen dalam container (flex container) untuk disusun dan disesuaikan dengan mudah sesuai dengan ruang yang tersedia.
 
-  Setelah menyelesaikan tahap registrasi, saya beralih ke penambahan fungsi login. Di sini, saya menggunakan **AuthenticationForm** untuk memvalidasi kredensial pengguna. Jika kredensial tersebut valid, saya menggunakan fungsi `login()` untuk mengautentikasi pengguna dan membuat sesi baru. Saya juga menghubungkan halaman login dengan HTML yang sederhana, yang berisi formulir login dan hyperlink ke halaman registrasi jika pengguna belum memiliki akun.
+#### Cara Kerja Flexbox:
 
-  Setelah berhasil mengimplementasikan login, saya menambahkan mekanisme logout. Pada bagian ini, saya membuat fungsi `logout_user()` untuk mengakhiri sesi pengguna dengan memanfaatkan fungsi **logout** bawaan Django. Setelah logout, pengguna akan diarahkan kembali ke halaman login, dan semua data sesi akan dihapus.
+Flexbox beroperasi berdasarkan dua komponen utama:
 
-  Untuk meningkatkan keamanan, saya menggunakan **login_required** decorator untuk membatasi akses ke halaman utama hanya bagi pengguna yang sudah login. Ini memastikan bahwa hanya pengguna terautentikasi yang bisa mengakses konten tersebut. Terakhir, saya juga mempelajari bagaimana menggunakan cookies, seperti menyimpan informasi _last login_ di halaman utama. Saya menambahkan _cookie_ bernama **last_login** ketika pengguna berhasil login, yang kemudian dihapus saat mereka logout. Dengan demikian, saya dapat membangun sistem autentikasi yang aman dan fungsional untuk aplikasi Django saya.
+-   Flex Container: Elemen yang mengandung elemen-elemen lain yang disebut Flex Items. Container ini diatur menggunakan display: flex;.
+    
+-   Flex Items: Elemen-elemen di dalam flex container yang disusun sesuai dengan aturan Flexbox.
+    
 
-- **Membuat dua akun pengguna dengan masing-masing tiga _dummy data_ menggunakan model yang telah dibuat pada aplikasi sebelumnya untuk setiap akun di lokal.**
-  Saya membuat dua akun pengguna pada aplikasi yang saya bangun secara lokal. Saya memanfaatkan fitur _UserCreationForm_ dari Django untuk memudahkan pembuatan akun tersebut. Setelah itu, saya menjalankan aplikasi pada _local server_ dan melakukan registrasi untuk dua akun pengguna dengan informasi berbeda.
+Beberapa properti dalam Flexbox:
 
-  Setelah akun pengguna selesai dibuat, saya login ke masing-masing akun dan memasukkan tiga data _dummy_ sesuai dengan model yang telah saya buat sebelumnya. Data ini meliputi atribut seperti nama, harga, dan deskripsi yang saya isi secara acak untuk setiap akun. Setelah itu, saya memastikan bahwa semua data _dummy_ yang dimasukkan berhasil disimpan ke dalam database lokal melalui ORM Django.
+-   flex-direction: Mengatur arah susunan elemen. Bisa dalam arah baris (default: row) atau kolom (column).
+    
+-   justify-content: Mengatur bagaimana elemen-elemen dalam flex container diatur secara horizontal (misal: center, space-between, flex-end).
+    
+-   align-items: Mengatur perataan elemen secara vertikal (misal: stretch, center, flex-start).
+    
+-   flex-wrap: Mengatur apakah elemen akan dipaksa berada dalam satu baris atau dapat dilipat ke baris berikutnya jika ruang tidak mencukupi.
+    
 
-- **Menghubungkan model `Product` dengan `User`.**  
-  Untuk menghubungkan model **Product** dengan **User** dalam aplikasi Django, saya mulai dengan menambahkan relasi yang sesuai pada model **Product**. Dalam file **models.py**, saya memperbarui model **Product** untuk mencakup field baru yang merujuk ke model **User**. Saya menggunakan `ForeignKey` untuk mendefinisikan hubungan satu-ke-banyak antara **User** dan **Product**, di mana satu pengguna bisa memiliki banyak produk. Field ini dinamai **user** dan dikonfigurasi sebagai opsional dengan parameter `null=True` dan `blank=True`. Dengan menambahkan field ini, setiap produk yang dibuat dalam aplikasi dapat dikaitkan dengan pengguna tertentu.  
-  Setelah memperbarui model, saya melanjutkan dengan melakukan migrasi database untuk menerapkan perubahan tersebut. Proses ini melibatkan menjalankan perintah `python manage.py makemigrations` diikuti oleh `python manage.py migrate`, yang memastikan bahwa field **user** baru diterapkan ke skema database dan dapat digunakan dalam aplikasi.  
-  Selanjutnya, saya perlu memperbarui formulir dan tampilan aplikasi untuk menghubungkan produk dengan pengguna yang sedang login. Dalam **views.py**, saya menambahkan logika untuk mengaitkan produk yang baru dibuat dengan pengguna saat ini. Ketika formulir produk dikirimkan, field **user** diisi secara otomatis dengan informasi pengguna yang sedang login, memastikan bahwa setiap produk yang ditambahkan oleh pengguna terkait dengan akun mereka.  
-  Terakhir, untuk menampilkan produk yang sesuai dengan pengguna yang sedang login, saya memperbarui tampilan produk dengan memfilter query berdasarkan pengguna saat ini. Dalam **views.py**, saya menambahkan logika untuk hanya menampilkan produk yang dimiliki oleh pengguna yang sedang login.
-- **Menampilkan detail informasi pengguna yang sedang _logged in_ seperti _username_ dan menerapkan `cookies` seperti `last login` pada halaman utama aplikasi.**  
-  Langkah pertama yang saya ambil adalah memperbarui tampilan halaman utama aplikasi untuk menampilkan nama pengguna yang saat ini sedang login. Dengan memanfaatkan **request.user** di dalam view, saya bisa mendapatkan informasi tentang pengguna yang sedang aktif dan meneruskannya ke template HTML. Di template, saya menampilkan nama pengguna dengan menggunakan sintaks **{{ user.username }}**, sehingga pengguna dapat melihat informasi pribadi mereka secara langsung.  
-  Selanjutnya, saya fokus pada implementasi cookies untuk meningkatkan pengalaman pengguna. Saya menambahkan cookie bernama **last_login** pada halaman utama aplikasi. Untuk melakukan ini, saya memperbarui fungsi view untuk menyertakan logika yang menyimpan informasi _last login_ setiap kali pengguna berhasil login. Saya menggunakan **HttpResponse** untuk mengatur cookie dan **request.COOKIES** untuk membaca nilai cookie yang sudah ada. Pada saat login, cookie **last_login** diatur dengan nilai waktu saat login terjadi, dan informasi ini ditampilkan pada halaman utama jika cookie tersebut tersedia. Selain itu, saya memastikan bahwa cookie ini dihapus saat pengguna logout untuk menjaga keamanan data.
+Kegunaan Flexbox:
+
+-   Memudahkan dalam pengaturan elemen yang fleksibel dan responsif, terutama ketika elemen-elemen perlu menyesuaikan ruang yang tersedia.
+    
+-   Setiap elemen dalam flex container dapat memiliki ukuran yang dinamis, tergantung pada konten atau pengaturan tata letak.
+    
+-   Cocok untuk membuat elemen-elemen menyesuaikan diri di dalam container yang berubah ukurannya, seperti pada tampilan responsif.
+    
+
+### Grid Layout
+
+Grid Layout adalah metode CSS yang memungkinkan tata letak dalam dua dimensi (baris dan kolom). Dengan Grid Layout, elemen-elemen web dapat diatur lebih terstruktur dengan menggunakan grid, seperti tabel, tetapi dengan lebih banyak fleksibilitas.
+
+#### Cara Kerja Grid Layout:
+
+Grid Layout memungkinkan untuk membuat grid yang terdiri dari kolom dan baris, di mana setiap elemen dapat ditempatkan secara presisi.
+
+Beberapa properti penting dalam Grid Layout:
+
+-   display: grid;: Mengaktifkan mode Grid pada container.
+    
+-   grid-template-columns dan grid-template-rows: Mengatur berapa banyak kolom dan baris yang akan dimiliki grid, serta ukuran masing-masing kolom dan baris.
+    
+-   grid-column dan grid-row: Mengatur posisi elemen dalam grid, misalnya elemen mana yang menempati kolom pertama atau baris kedua.
+    
+-   grid-gap atau gap: Memberikan jarak antara baris dan kolom dalam grid.
+    
+
+Kegunaan Grid Layout:
+
+-   Mempermudah pembuatan tata letak yang lebih terstruktur, di mana elemen-elemen bisa ditempatkan dalam beberapa baris dan kolom.
+    
+-   Fleksibilitas tinggi dalam mengatur ukuran dan penempatan elemen sesuai dengan grid yang telah ditentukan.
+    
+-   Grid sangat ideal untuk membuat halaman web yang memiliki banyak bagian dengan susunan yang simetris dan teratur.
+    
+
+ 
+**Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!**
+
+  
+### Implementasikan fungsi untuk menghapus dan mengedit product.
+
+### Implementasi Fitur Edit Product
+
+Untuk menambahkan fitur edit produk pada aplikasi, saya memulai dengan membuka berkas views.py yang terletak di subdirektori main. Di sini, saya membuat fungsi baru bernama edit_product yang menerima dua parameter: request dan id. Fungsi ini bertujuan untuk mengambil entri product berdasarkan ID yang diberikan. Saya menggunakan Product.objects.get(pk=id) untuk mendapatkan entri tersebut. Setelah itu, saya membuat instance dari ProductEntryForm, dengan mengisi data yang telah diambil sebelumnya. Ini memungkinkan form untuk menampilkan data yang sudah ada sehingga pengguna dapat mengeditnya.
+
+Selanjutnya, saya menambahkan logika untuk memproses pengiriman form. Jika form valid dan metode yang digunakan adalah POST, saya menyimpan perubahan dengan memanggil form.save(), dan mengarahkan kembali pengguna ke halaman utama dengan menggunakan HttpResponseRedirect(reverse('main:show_main')). Jika form tidak valid atau metode bukan POST, saya menyiapkan konteks yang berisi form untuk ditampilkan pada template edit_product.html. Akhirnya, saya merender template dengan mengirimkan konteks yang telah disiapkan.
+
+Setelah itu, saya perlu menambahkan import yang diperlukan di bagian atas berkas views.py, yaitu from django.shortcuts import render, reverse dan from django.http import HttpResponseRedirect. Ini penting agar fungsi yang saya buat dapat bekerja dengan baik dan dapat mengakses fitur-fitur yang diperlukan dari Django.
+
+### Implementasi Template Edit Product
+
+Langkah selanjutnya adalah membuat berkas template baru bernama edit_product.html di subdirektori main/templates. Dalam berkas ini, saya menggunakan sintaks templating Django untuk memperluas base.html. Di dalam blok konten, saya membuat form yang menggunakan metode POST. Form ini dilengkapi dengan token CSRF untuk keamanan. Saya memanfaatkan {{ form.as_table }} untuk menampilkan field dari form dalam format tabel, dan menambahkan tombol submit untuk mengedit product.
+
+### Penambahan URL untuk Edit Product
+
+Selanjutnya, saya membuka berkas urls.py yang terletak di direktori main untuk menambahkan rute yang akan mengarahkan pengguna ke fungsi edit_product yang baru saja saya buat. Saya mengimpor fungsi tersebut menggunakan from main.views import edit_product. Kemudian, saya menambahkan path baru ke dalam urlpatterns, yang memungkinkan akses ke fungsi edit_product dengan URL yang sesuai, misalnya path('edit-product/<uuid:id>', edit_product, name='edit_product'). Penting untuk memastikan tipe data ID yang digunakan sesuai dengan model ProductEntry.
+
+### Penambahan Tombol Edit di Box Product
+
+Setelah menyiapkan fitur edit, saya melanjutkan dengan membuka berkas card_product.htm. Di sini, saya menambahkan tombol Edit pada box product yang menampilkan terkait informasi product tertentu. Dengan menambahkan potongan kode yang sesuai, saya memastikan bahwa tombol tersebut mengarahkan pengguna ke halaman edit product dengan menyertakan primary key dari entri yang bersangkutan dalam URL. Saya menggunakan sintaks {% url 'main:edit_product' product.pk %} untuk membangun URL yang dinamis.
+
+### Implementasi Fitur Hapus Product
+
+Setelah berhasil mengimplementasikan fitur edit, saya beralih ke implementasi fitur hapus product. Pertama, saya membuat fungsi baru bernama delete_product di views.py. Fungsi ini juga menerima parameter request dan id, dan berfungsi untuk menghapus entri product berdasarkan ID yang diberikan. Dalam fungsi ini, saya memanggil ProductEntry.objects.get(pk=id) untuk mengambil entri product yang akan dihapus, dan kemudian memanggil metode delete() pada objek tersebut untuk menghapusnya dari database. Setelah penghapusan berhasil, saya mengarahkan pengguna kembali ke halaman utama.
+
+### Penambahan URL untuk Hapus Product
+
+Saya kemudian membuka kembali berkas urls.py untuk mengimpor fungsi delete_product yang telah saya buat, dan menambahkan path baru untuk mengakses fungsi ini, mirip dengan proses yang saya lakukan untuk fungsi edit_product.
+
+### Penambahan Tombol Hapus di Box Product
+
+Untuk melengkapi implementasi ini, saya membuka kembali berkas card_product.html dan menambahkan tombol Hapus pada box product yang menampilkan terkait informasi product tertentu. Saya menggunakan sintaks {% url 'main:delete_product' product.pk %} untuk membangun URL untuk fungsi hapus, sehingga pengguna dapat menghapus entri product yang diinginkan dengan mudah.
 
 </details>
