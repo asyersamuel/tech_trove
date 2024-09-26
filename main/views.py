@@ -6,8 +6,7 @@ from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-
-from django.shortcuts import render, redirect   # Tambahkan import redirect di baris ini
+from django.shortcuts import render, redirect, reverse   # Tambahkan import redirect di baris ini
 from main.forms import ProductEntryForm
 from main.models import Product
 from django.http import HttpResponse
@@ -88,3 +87,20 @@ def logout_user(request):
     response = HttpResponseRedirect(reverse('main:login'))
     response.delete_cookie('last_login')
     return response
+
+def edit_product(request, id):
+    mood = Product.objects.get(pk = id)
+    form = ProductEntryForm(request.POST or None, instance=mood)
+
+    if form.is_valid() and request.method == "POST":
+        form.save()
+        return HttpResponseRedirect(reverse('main:show_main'))
+
+    context = {'form': form}
+    return render(request, "edit_product.html", context)
+
+def delete_product(request, id):
+    mood = Product.objects.get(pk = id)
+    mood.delete()
+
+    return HttpResponseRedirect(reverse('main:show_main'))

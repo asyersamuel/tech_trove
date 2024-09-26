@@ -1,0 +1,67 @@
+<!-- {% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Tech Trove</title>
+{% endblock meta %}
+{% block content %}
+{% include 'navbar.html' %}
+
+<h1>{{store_name}}</h1>
+
+<h5>Nama:</h5>
+<p>{{ name }}</p>
+<h5>Kelas:</h5>
+<p>{{ class }}</p>
+
+{% if not products %}
+<p>Belum ada produk.</p>
+{% else %}
+<table>
+  <tr>
+    <th>Product</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>Description</th>
+  </tr>
+
+  {% comment %} Memperlihatkan data product {%endcomment %} 
+  {% for product in products %}
+  <tr>
+    <td>{{product.name}}</td>
+    <td>{{product.price}}</td>
+    <td>{{product.quantity}}</td>
+    <td>{{product.description}}</td>
+    <td>
+        <a href="{% url 'main:edit_product' product.pk %}">
+            <button>
+                Edit
+            </button>
+        </a>
+    </td>
+    <td>
+        <a href="{% url 'main:delete_product' product.pk %}">
+            <button>
+                Delete
+            </button>
+        </a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endif %}
+
+<br />
+
+<a href="{% url 'main:product_entry' %}">
+  <button>Add New Product</button>
+</a>
+
+<a href="{% url 'main:logout' %}">
+  <button>Logout</button>
+</a>
+
+<h5>User: {{ name }}</h5>
+<h5>Sesi terakhir login: {{ last_login }}</h5>
+
+{% endblock content %} -->

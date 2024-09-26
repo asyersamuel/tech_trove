@@ -234,3 +234,76 @@ Dengan menjaga praktik keamanan seperti menggunakan atribut HttpOnly, SameSite, 
   Selanjutnya, saya fokus pada implementasi cookies untuk meningkatkan pengalaman pengguna. Saya menambahkan cookie bernama **last_login** pada halaman utama aplikasi. Untuk melakukan ini, saya memperbarui fungsi view untuk menyertakan logika yang menyimpan informasi _last login_ setiap kali pengguna berhasil login. Saya menggunakan **HttpResponse** untuk mengatur cookie dan **request.COOKIES** untuk membaca nilai cookie yang sudah ada. Pada saat login, cookie **last_login** diatur dengan nilai waktu saat login terjadi, dan informasi ini ditampilkan pada halaman utama jika cookie tersebut tersedia. Selain itu, saya memastikan bahwa cookie ini dihapus saat pengguna logout untuk menjaga keamanan data.
 
 </details>
+
+
+<details>
+  <summary>TUGAS 5</summary>
+  
+**1\. Apa itu Django `UserCreationForm`, dan jelaskan apa kelebihan dan kekurangannya?**
+
+Django UserCreationForm adalah formulir bawaan dari Django yang digunakan untuk membuat pengguna baru dalam aplikasi web. Formulir ini menyediakan tiga bidang utama: username, password, dan konfirmasi password
+
+### Kelebihan:
+
+1. **Mudah Digunakan:** UserCreationForm sudah siap pakai dan memudahkan pengembang untuk membuat formulir pendaftaran pengguna tanpa perlu menulis kode dari awal.
+2. **Keamanan:** Formulir ini sudah dilengkapi dengan validasi kata sandi dan konfirmasi kata sandi, sehingga membantu mencegah kesalahan umum seperti kata sandi yang tidak cocok.
+3. **Integrasi dengan Django Admin:** Mudah diintegrasikan dengan sistem autentikasi dan administrasi Django, sehingga mempermudah pengelolaan pengguna.
+
+### Kekurangan:
+
+1. **Keterbatasan Kustomisasi:** Meskipun mudah digunakan, UserCreationForm mungkin memerlukan penyesuaian tambahan jika Anda membutuhkan fitur khusus atau tampilan yang berbeda.
+2. **Tidak Ada Tampilan Bawaan:** Django tidak menyediakan tampilan (view) bawaan untuk menangani pembuatan pengguna, sehingga Anda harus membuat tampilan sendiri untuk menggunakannya
+
+**2\. Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?**
+
+Autentikasi adalah proses untuk memverifikasi identitas pengguna. Dalam konteks Django, ini biasanya dilakukan melalui nama pengguna dan kata sandi. Ketika pengguna mencoba masuk ke aplikasi, sistem autentikasi akan memeriksa apakah kredensial yang diberikan cocok dengan yang ada di database. Jika cocok, pengguna diizinkan untuk masuk. Autentikasi penting karena memastikan bahwa hanya pengguna yang sah yang dapat mengakses aplikasi, sehingga mencegah akses oleh pihak yang tidak berwenang.
+
+Otorisasi, di sisi lain, adalah proses untuk menentukan hak akses pengguna setelah mereka terautentikasi. Ini berarti setelah pengguna berhasil masuk, sistem akan menentukan apa yang bisa dan tidak bisa dilakukan oleh pengguna tersebut berdasarkan peran atau izin yang mereka miliki. Misalnya, seorang pengguna biasa mungkin hanya bisa melihat dan mengedit profil mereka sendiri, sementara seorang admin bisa mengelola semua profil pengguna. Otorisasi penting karena memastikan bahwa pengguna hanya bisa mengakses data dan fungsi yang sesuai dengan peran mereka, menjaga keamanan dan integritas data.
+
+Kedua konsep ini sangat penting dalam pengembangan aplikasi web karena mereka bekerja bersama untuk memastikan keamanan dan kontrol akses yang tepat. Autentikasi memastikan bahwa hanya pengguna yang sah yang bisa masuk, sementara otorisasi memastikan bahwa mereka hanya bisa melakukan tindakan yang diizinkan. Dengan kombinasi ini, pengembang dapat mengontrol akses ke berbagai bagian aplikasi berdasarkan peran pengguna, memberikan pengalaman pengguna yang aman dan terkontrol.
+
+**3\. Apa itu _cookies_ dalam konteks aplikasi web, dan bagaimana Django menggunakan _cookies_ untuk mengelola data sesi pengguna?**
+
+Cookies dalam konteks aplikasi web adalah file kecil yang disimpan di browser pengguna untuk menyimpan data seperti preferensi atau informasi sesi. Cookies memungkinkan situs web mengenali pengguna saat mereka kembali, misalnya untuk tetap login atau mengingat pengaturan tertentu.
+
+Dalam Django, cookies digunakan untuk mengelola **data sesi pengguna**. Ketika pengguna login atau melakukan interaksi yang membutuhkan sesi, Django membuat sesi unik untuk pengguna tersebut dan menyimpan **ID sesi** dalam cookie di browser mereka. ID ini digunakan untuk melacak aktivitas pengguna selama mereka menggunakan situs web, sementara data sesi yang sebenarnya (misalnya, informasi login) disimpan di server Django. Django menggunakan cookies ini untuk memeriksa apakah pengguna sudah login atau untuk menyimpan informasi lain yang berkaitan dengan sesi, tanpa harus menyimpan data sensitif di cookie itu sendiri.
+
+**4\.Apakah penggunaan _cookies_ aman secara _default_ dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?**
+
+Penggunaan cookies dalam pengembangan web secara default dapat aman, namun ada risiko potensial yang harus diperhatikan. Cookies adalah file kecil yang disimpan di browser pengguna untuk menyimpan informasi seperti preferensi, data login, atau sesi. Secara umum, cookies membantu meningkatkan pengalaman pengguna, tetapi jika tidak dikelola dengan benar, mereka dapat menjadi celah keamanan.
+
+Salah satu risiko utama adalah **pencurian cookies** melalui serangan **Cross-Site Scripting (XSS)**, di mana penyerang dapat menyuntikkan skrip berbahaya ke dalam situs web untuk mencuri cookies yang berisi informasi sensitif. Untuk mengurangi risiko ini, pengembang dapat mengaktifkan atribut **HttpOnly** pada cookies, sehingga cookie tersebut tidak dapat diakses melalui JavaScript.
+
+Risiko lainnya adalah **Cross-Site Request Forgery (CSRF)**, di mana penyerang menggunakan cookies yang valid untuk menjalankan permintaan berbahaya di situs web atas nama pengguna. Atribut **SameSite** dapat digunakan untuk membatasi pengiriman cookies hanya dalam konteks yang sama, sehingga mencegah serangan ini.
+
+Selain itu, cookies yang tidak dienkripsi dapat disadap oleh pihak ketiga jika transmisi data tidak menggunakan protokol **HTTPS**. Oleh karena itu, mengaktifkan atribut **Secure** untuk memastikan cookie hanya dikirim melalui koneksi terenkripsi sangat penting.
+
+Dengan menjaga praktik keamanan seperti menggunakan atribut HttpOnly, SameSite, dan Secure, serta memastikan data dikirim melalui HTTPS, risiko penggunaan cookies dapat diminimalkan. Namun, pengembang harus tetap waspada terhadap potensi serangan yang memanfaatkan kelemahan dalam pengelolaan cookies.
+
+**5\. Jelaskan bagaimana cara kamu mengimplementasikan _checklist_ di atas secara _step-by-step_ (bukan hanya sekadar mengikuti tutorial).**
+
+- **Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan lancar.**
+
+  Tahap pertama yang saya lakukan adalah membuat halaman registrasi bagi pengguna baru dengan memanfaatkan formulir bawaan Django, yaitu **UserCreationForm**. Saya menambahkan fungsi `register()` pada _views.py_ sehingga pengguna bisa membuat akun baru dan menyimpan informasi mereka ke dalam database. Setelah registrasi berhasil, saya menambahkan pesan konfirmasi dengan modul **messages**, dan pengguna akan diarahkan ke halaman login.
+
+  Setelah menyelesaikan tahap registrasi, saya beralih ke penambahan fungsi login. Di sini, saya menggunakan **AuthenticationForm** untuk memvalidasi kredensial pengguna. Jika kredensial tersebut valid, saya menggunakan fungsi `login()` untuk mengautentikasi pengguna dan membuat sesi baru. Saya juga menghubungkan halaman login dengan HTML yang sederhana, yang berisi formulir login dan hyperlink ke halaman registrasi jika pengguna belum memiliki akun.
+
+  Setelah berhasil mengimplementasikan login, saya menambahkan mekanisme logout. Pada bagian ini, saya membuat fungsi `logout_user()` untuk mengakhiri sesi pengguna dengan memanfaatkan fungsi **logout** bawaan Django. Setelah logout, pengguna akan diarahkan kembali ke halaman login, dan semua data sesi akan dihapus.
+
+  Untuk meningkatkan keamanan, saya menggunakan **login_required** decorator untuk membatasi akses ke halaman utama hanya bagi pengguna yang sudah login. Ini memastikan bahwa hanya pengguna terautentikasi yang bisa mengakses konten tersebut. Terakhir, saya juga mempelajari bagaimana menggunakan cookies, seperti menyimpan informasi _last login_ di halaman utama. Saya menambahkan _cookie_ bernama **last_login** ketika pengguna berhasil login, yang kemudian dihapus saat mereka logout. Dengan demikian, saya dapat membangun sistem autentikasi yang aman dan fungsional untuk aplikasi Django saya.
+
+- **Membuat dua akun pengguna dengan masing-masing tiga _dummy data_ menggunakan model yang telah dibuat pada aplikasi sebelumnya untuk setiap akun di lokal.**
+  Saya membuat dua akun pengguna pada aplikasi yang saya bangun secara lokal. Saya memanfaatkan fitur _UserCreationForm_ dari Django untuk memudahkan pembuatan akun tersebut. Setelah itu, saya menjalankan aplikasi pada _local server_ dan melakukan registrasi untuk dua akun pengguna dengan informasi berbeda.
+
+  Setelah akun pengguna selesai dibuat, saya login ke masing-masing akun dan memasukkan tiga data _dummy_ sesuai dengan model yang telah saya buat sebelumnya. Data ini meliputi atribut seperti nama, harga, dan deskripsi yang saya isi secara acak untuk setiap akun. Setelah itu, saya memastikan bahwa semua data _dummy_ yang dimasukkan berhasil disimpan ke dalam database lokal melalui ORM Django.
+
+- **Menghubungkan model `Product` dengan `User`.**  
+  Untuk menghubungkan model **Product** dengan **User** dalam aplikasi Django, saya mulai dengan menambahkan relasi yang sesuai pada model **Product**. Dalam file **models.py**, saya memperbarui model **Product** untuk mencakup field baru yang merujuk ke model **User**. Saya menggunakan `ForeignKey` untuk mendefinisikan hubungan satu-ke-banyak antara **User** dan **Product**, di mana satu pengguna bisa memiliki banyak produk. Field ini dinamai **user** dan dikonfigurasi sebagai opsional dengan parameter `null=True` dan `blank=True`. Dengan menambahkan field ini, setiap produk yang dibuat dalam aplikasi dapat dikaitkan dengan pengguna tertentu.  
+  Setelah memperbarui model, saya melanjutkan dengan melakukan migrasi database untuk menerapkan perubahan tersebut. Proses ini melibatkan menjalankan perintah `python manage.py makemigrations` diikuti oleh `python manage.py migrate`, yang memastikan bahwa field **user** baru diterapkan ke skema database dan dapat digunakan dalam aplikasi.  
+  Selanjutnya, saya perlu memperbarui formulir dan tampilan aplikasi untuk menghubungkan produk dengan pengguna yang sedang login. Dalam **views.py**, saya menambahkan logika untuk mengaitkan produk yang baru dibuat dengan pengguna saat ini. Ketika formulir produk dikirimkan, field **user** diisi secara otomatis dengan informasi pengguna yang sedang login, memastikan bahwa setiap produk yang ditambahkan oleh pengguna terkait dengan akun mereka.  
+  Terakhir, untuk menampilkan produk yang sesuai dengan pengguna yang sedang login, saya memperbarui tampilan produk dengan memfilter query berdasarkan pengguna saat ini. Dalam **views.py**, saya menambahkan logika untuk hanya menampilkan produk yang dimiliki oleh pengguna yang sedang login.
+- **Menampilkan detail informasi pengguna yang sedang _logged in_ seperti _username_ dan menerapkan `cookies` seperti `last login` pada halaman utama aplikasi.**  
+  Langkah pertama yang saya ambil adalah memperbarui tampilan halaman utama aplikasi untuk menampilkan nama pengguna yang saat ini sedang login. Dengan memanfaatkan **request.user** di dalam view, saya bisa mendapatkan informasi tentang pengguna yang sedang aktif dan meneruskannya ke template HTML. Di template, saya menampilkan nama pengguna dengan menggunakan sintaks **{{ user.username }}**, sehingga pengguna dapat melihat informasi pribadi mereka secara langsung.  
+  Selanjutnya, saya fokus pada implementasi cookies untuk meningkatkan pengalaman pengguna. Saya menambahkan cookie bernama **last_login** pada halaman utama aplikasi. Untuk melakukan ini, saya memperbarui fungsi view untuk menyertakan logika yang menyimpan informasi _last login_ setiap kali pengguna berhasil login. Saya menggunakan **HttpResponse** untuk mengatur cookie dan **request.COOKIES** untuk membaca nilai cookie yang sudah ada. Pada saat login, cookie **last_login** diatur dengan nilai waktu saat login terjadi, dan informasi ini ditampilkan pada halaman utama jika cookie tersebut tersedia. Selain itu, saya memastikan bahwa cookie ini dihapus saat pengguna logout untuk menjaga keamanan data.
+
+</details>
