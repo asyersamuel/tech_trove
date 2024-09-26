@@ -237,9 +237,7 @@ Dua akun pengguna dengan masing-masing tiga dummy data
 ![image](https://github.com/user-attachments/assets/d62f5ae6-938a-4a20-a71d-dc2c49d164c7)
 ![image](https://github.com/user-attachments/assets/b480c8e5-7614-4808-b616-eec6646f0f8b)
 
-
 </details>
-
 
 <details>
   <summary>TUGAS 5</summary>
@@ -250,46 +248,36 @@ Pertama, browser akan mempertahankan gaya yang didefinisikan langsung di dalam e
 
 Selanjutnya, browser akan mempertahankan gaya yang didefinisikan menggunakan selector kelas, atribut, dan pseudo-kelas. Selector kelas menggunakan simbol . untuk menargetkan elemen dengan atribut class tertentu, sedangkan selector atribut dan pseudo-kelas menargetkan elemen berdasarkan atribut atau pseudo-kelasnya (contohnya :hover, :active, dan lain-lain). Terakhir, browser akan mempertahankan gaya yang didefinisikan menggunakan selector elemen dan pseudo-elemen. Selector elemen menargetkan elemen berdasarkan nama tag-nya, sedangkan selector pseudo-elemen menargetkan elemen berdasarkan pseudo-elemen (contohnya :before, :after, dan lain-lain).
 
-
 **Mengapa responsive design menjadi konsep yang penting dalam pengembangan aplikasi web? Berikan contoh aplikasi yang sudah dan belum menerapkan responsive design!**
 
 Responsive design adalah konsep yang penting dalam pengembangan aplikasi web karena memungkinkan website untuk menyesuaikan tampilan dan layoutnya berdasarkan ukuran layar dan perangkat yang digunakan. Ini sangat penting karena:
 
--   Banyaknya perangkat yang berbeda: Saat ini, pengguna menggunakan berbagai perangkat seperti smartphone, tablet, laptop, dan desktop untuk mengakses website. Responsive design memastikan bahwa website dapat menyesuaikan diri dengan ukuran layar dan perangkat yang berbeda.
-    
--   Pengalaman pengguna yang lebih baik: Dengan responsive design, pengguna dapat memiliki pengalaman yang lebih baik ketika mengakses website karena tampilan dan layoutnya dapat menyesuaikan dengan perangkat yang digunakan.
-    
--   Meningkatkan kemudahan akses: Responsive design memungkinkan website dapat diakses dengan mudah dan nyaman dari berbagai perangkat, sehingga meningkatkan kemudahan akses bagi pengguna.
-    
+- Banyaknya perangkat yang berbeda: Saat ini, pengguna menggunakan berbagai perangkat seperti smartphone, tablet, laptop, dan desktop untuk mengakses website. Responsive design memastikan bahwa website dapat menyesuaikan diri dengan ukuran layar dan perangkat yang berbeda.
+- Pengalaman pengguna yang lebih baik: Dengan responsive design, pengguna dapat memiliki pengalaman yang lebih baik ketika mengakses website karena tampilan dan layoutnya dapat menyesuaikan dengan perangkat yang digunakan.
+- Meningkatkan kemudahan akses: Responsive design memungkinkan website dapat diakses dengan mudah dan nyaman dari berbagai perangkat, sehingga meningkatkan kemudahan akses bagi pengguna.
 
 Contoh Aplikasi yang Sudah Menerapkan Responsive Design
 
--   Facebook: Website Facebook dapat menyesuaikan tampilan dan layoutnya berdasarkan ukuran layar dan perangkat yang digunakan.
-    
--   Twitter: Website Twitter juga dapat menyesuaikan tampilan dan layoutnya berdasarkan ukuran layar dan perangkat yang digunakan.
-    
+- Facebook: Website Facebook dapat menyesuaikan tampilan dan layoutnya berdasarkan ukuran layar dan perangkat yang digunakan.
+- Twitter: Website Twitter juga dapat menyesuaikan tampilan dan layoutnya berdasarkan ukuran layar dan perangkat yang digunakan.
 
 Contoh Aplikasi yang Belum Menerapkan Responsive Design
 
--   Old Website: Website yang dibuat beberapa tahun lalu mungkin belum menerapkan responsive design, sehingga tampilan dan layoutnya tidak dapat menyesuaikan dengan ukuran layar dan perangkat yang berbeda.
-    
--   Government Website: Beberapa website pemerintahan masih belum menerapkan responsive design, sehingga pengguna harus melakukan zoom in dan zoom out untuk dapat membaca konten website dengan nyaman.
-    
+- Old Website: Website yang dibuat beberapa tahun lalu mungkin belum menerapkan responsive design, sehingga tampilan dan layoutnya tidak dapat menyesuaikan dengan ukuran layar dan perangkat yang berbeda.
+- Government Website: Beberapa website pemerintahan masih belum menerapkan responsive design, sehingga pengguna harus melakukan zoom in dan zoom out untuk dapat membaca konten website dengan nyaman.
 
 **Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut!**
 
 Dalam CSS, margin, border, dan padding adalah tiga properti yang digunakan untuk mengatur layout dan tampilan elemen HTML.
 
--   Margin adalah ruang kosong di sekitar elemen HTML yang memisahkan elemen dari elemen lainnya. Margin dapat digunakan untuk mengatur jarak antara elemen dengan elemen lainnya.
-    
--   Border adalah garis yang mengelilingi elemen HTML. Border dapat digunakan untuk mengatur ketebalan, gaya, dan warna garis yang mengelilingi elemen.
-    
--   Padding adalah ruang kosong di dalam elemen HTML yang memisahkan konten dari border. Padding dapat digunakan untuk mengatur jarak antara konten dengan border.
-    
+- Margin adalah ruang kosong di sekitar elemen HTML yang memisahkan elemen dari elemen lainnya. Margin dapat digunakan untuk mengatur jarak antara elemen dengan elemen lainnya.
+- Border adalah garis yang mengelilingi elemen HTML. Border dapat digunakan untuk mengatur ketebalan, gaya, dan warna garis yang mengelilingi elemen.
+- Padding adalah ruang kosong di dalam elemen HTML yang memisahkan konten dari border. Padding dapat digunakan untuk mengatur jarak antara konten dengan border.
 
-Cara Mengimplementasikan Margin, Border, dan Padding
+Cara Mengimplementasikan Margin, Border, dan Padding.
 
 Dalam css:
+
 ```bash
 box {
 /* Margin */
@@ -301,9 +289,8 @@ border: 1px solid #000; /* mengatur ketebalan 1px, gaya solid, dan warna hitam *
 /* Padding */
 padding: 10px; /* mengatur jarak 10px dari konten dengan border */
 ```
-Dalam contoh di atas, kita mengatur margin 20px, border dengan ketebalan 1px, gaya solid, dan warna hitam, serta padding 10px untuk elemen dengan class .box.
 
-  
+Dalam contoh di atas, kita mengatur margin 20px, border dengan ketebalan 1px, gaya solid, dan warna hitam, serta padding 10px untuk elemen dengan class .box.
 
 **Jelaskan konsep flex box dan grid layout beserta kegunaannya**
 
@@ -315,30 +302,21 @@ Flexbox adalah metode CSS yang dirancang untuk membuat tata letak yang lebih fle
 
 Flexbox beroperasi berdasarkan dua komponen utama:
 
--   Flex Container: Elemen yang mengandung elemen-elemen lain yang disebut Flex Items. Container ini diatur menggunakan display: flex;.
-    
--   Flex Items: Elemen-elemen di dalam flex container yang disusun sesuai dengan aturan Flexbox.
-    
+- Flex Container: Elemen yang mengandung elemen-elemen lain yang disebut Flex Items. Container ini diatur menggunakan display: flex;.
+- Flex Items: Elemen-elemen di dalam flex container yang disusun sesuai dengan aturan Flexbox.
 
 Beberapa properti dalam Flexbox:
 
--   flex-direction: Mengatur arah susunan elemen. Bisa dalam arah baris (default: row) atau kolom (column).
-    
--   justify-content: Mengatur bagaimana elemen-elemen dalam flex container diatur secara horizontal (misal: center, space-between, flex-end).
-    
--   align-items: Mengatur perataan elemen secara vertikal (misal: stretch, center, flex-start).
-    
--   flex-wrap: Mengatur apakah elemen akan dipaksa berada dalam satu baris atau dapat dilipat ke baris berikutnya jika ruang tidak mencukupi.
-    
+- flex-direction: Mengatur arah susunan elemen. Bisa dalam arah baris (default: row) atau kolom (column).
+- justify-content: Mengatur bagaimana elemen-elemen dalam flex container diatur secara horizontal (misal: center, space-between, flex-end).
+- align-items: Mengatur perataan elemen secara vertikal (misal: stretch, center, flex-start).
+- flex-wrap: Mengatur apakah elemen akan dipaksa berada dalam satu baris atau dapat dilipat ke baris berikutnya jika ruang tidak mencukupi.
 
 Kegunaan Flexbox:
 
--   Memudahkan dalam pengaturan elemen yang fleksibel dan responsif, terutama ketika elemen-elemen perlu menyesuaikan ruang yang tersedia.
-    
--   Setiap elemen dalam flex container dapat memiliki ukuran yang dinamis, tergantung pada konten atau pengaturan tata letak.
-    
--   Cocok untuk membuat elemen-elemen menyesuaikan diri di dalam container yang berubah ukurannya, seperti pada tampilan responsif.
-    
+- Memudahkan dalam pengaturan elemen yang fleksibel dan responsif, terutama ketika elemen-elemen perlu menyesuaikan ruang yang tersedia.
+- Setiap elemen dalam flex container dapat memiliki ukuran yang dinamis, tergantung pada konten atau pengaturan tata letak.
+- Cocok untuk membuat elemen-elemen menyesuaikan diri di dalam container yang berubah ukurannya, seperti pada tampilan responsif.
 
 ### Grid Layout
 
@@ -350,28 +328,19 @@ Grid Layout memungkinkan untuk membuat grid yang terdiri dari kolom dan baris, d
 
 Beberapa properti penting dalam Grid Layout:
 
--   display: grid;: Mengaktifkan mode Grid pada container.
-    
--   grid-template-columns dan grid-template-rows: Mengatur berapa banyak kolom dan baris yang akan dimiliki grid, serta ukuran masing-masing kolom dan baris.
-    
--   grid-column dan grid-row: Mengatur posisi elemen dalam grid, misalnya elemen mana yang menempati kolom pertama atau baris kedua.
-    
--   grid-gap atau gap: Memberikan jarak antara baris dan kolom dalam grid.
-    
+- display: grid;: Mengaktifkan mode Grid pada container.
+- grid-template-columns dan grid-template-rows: Mengatur berapa banyak kolom dan baris yang akan dimiliki grid, serta ukuran masing-masing kolom dan baris.
+- grid-column dan grid-row: Mengatur posisi elemen dalam grid, misalnya elemen mana yang menempati kolom pertama atau baris kedua.
+- grid-gap atau gap: Memberikan jarak antara baris dan kolom dalam grid.
 
 Kegunaan Grid Layout:
 
--   Mempermudah pembuatan tata letak yang lebih terstruktur, di mana elemen-elemen bisa ditempatkan dalam beberapa baris dan kolom.
-    
--   Fleksibilitas tinggi dalam mengatur ukuran dan penempatan elemen sesuai dengan grid yang telah ditentukan.
-    
--   Grid sangat ideal untuk membuat halaman web yang memiliki banyak bagian dengan susunan yang simetris dan teratur.
-    
+- Mempermudah pembuatan tata letak yang lebih terstruktur, di mana elemen-elemen bisa ditempatkan dalam beberapa baris dan kolom.
+- Fleksibilitas tinggi dalam mengatur ukuran dan penempatan elemen sesuai dengan grid yang telah ditentukan.
+- Grid sangat ideal untuk membuat halaman web yang memiliki banyak bagian dengan susunan yang simetris dan teratur.
 
- 
 **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!**
 
-  
 ### Implementasikan fungsi untuk menghapus dan mengedit product.
 
 ### Implementasi Fitur Edit Product
