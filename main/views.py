@@ -89,8 +89,8 @@ def logout_user(request):
     return response
 
 def edit_product(request, id):
-    mood = Product.objects.get(pk = id)
-    form = ProductEntryForm(request.POST or None, instance=mood)
+    product = Product.objects.get(pk = id)
+    form = ProductEntryForm(request.POST or None, instance=product)
 
     if form.is_valid() and request.method == "POST":
         form.save()
@@ -100,7 +100,7 @@ def edit_product(request, id):
     return render(request, "edit_product.html", context)
 
 def delete_product(request, id):
-    mood = Product.objects.get(pk = id)
-    mood.delete()
+    product = Product.objects.get(pk = id)
+    product.delete()
 
     return HttpResponseRedirect(reverse('main:show_main'))
