@@ -242,6 +242,7 @@ Dua akun pengguna dengan masing-masing tiga dummy data
 <details>
   <summary>TUGAS 5</summary>
   
+
 **Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!**
 
 Pertama, browser akan mempertahankan gaya yang didefinisikan langsung di dalam elemen HTML menggunakan atribut style. Ini disebut sebagai gaya inline. Kemudian, browser akan mempertahankan gaya yang didefinisikan menggunakan selector ID, yaitu selector yang menggunakan simbol # untuk menargetkan elemen dengan atribut id tertentu.
@@ -252,127 +253,153 @@ Selanjutnya, browser akan mempertahankan gaya yang didefinisikan menggunakan sel
 
 Responsive design adalah konsep yang penting dalam pengembangan aplikasi web karena memungkinkan website untuk menyesuaikan tampilan dan layoutnya berdasarkan ukuran layar dan perangkat yang digunakan. Ini sangat penting karena:
 
-- Banyaknya perangkat yang berbeda: Saat ini, pengguna menggunakan berbagai perangkat seperti smartphone, tablet, laptop, dan desktop untuk mengakses website. Responsive design memastikan bahwa website dapat menyesuaikan diri dengan ukuran layar dan perangkat yang berbeda.
-- Pengalaman pengguna yang lebih baik: Dengan responsive design, pengguna dapat memiliki pengalaman yang lebih baik ketika mengakses website karena tampilan dan layoutnya dapat menyesuaikan dengan perangkat yang digunakan.
-- Meningkatkan kemudahan akses: Responsive design memungkinkan website dapat diakses dengan mudah dan nyaman dari berbagai perangkat, sehingga meningkatkan kemudahan akses bagi pengguna.
+-   Saat ini, pengguna menggunakan berbagai perangkat seperti smartphone, tablet, laptop, dan desktop untuk mengakses website. Responsive design memastikan bahwa website dapat menyesuaikan diri dengan ukuran layar dan perangkat yang berbeda.
+-   Dengan responsive design, pengguna dapat memiliki pengalaman yang lebih baik ketika mengakses website karena tampilan dan layoutnya dapat menyesuaikan dengan perangkat yang digunakan.
+-   Responsive design memungkinkan website dapat diakses dengan mudah dan nyaman dari berbagai perangkat, sehingga meningkatkan kemudahan akses bagi pengguna.
+    
 
 Contoh Aplikasi yang Sudah Menerapkan Responsive Design
-
-- Facebook: Website Facebook dapat menyesuaikan tampilan dan layoutnya berdasarkan ukuran layar dan perangkat yang digunakan.
-- Twitter: Website Twitter juga dapat menyesuaikan tampilan dan layoutnya berdasarkan ukuran layar dan perangkat yang digunakan.
-
+-   Instagram
+-   Twitter
+  
 Contoh Aplikasi yang Belum Menerapkan Responsive Design
-
-- Old Website: Website yang dibuat beberapa tahun lalu mungkin belum menerapkan responsive design, sehingga tampilan dan layoutnya tidak dapat menyesuaikan dengan ukuran layar dan perangkat yang berbeda.
-- Government Website: Beberapa website pemerintahan masih belum menerapkan responsive design, sehingga pengguna harus melakukan zoom in dan zoom out untuk dapat membaca konten website dengan nyaman.
+-   DJP Online
+-   Craiglist
+    
 
 **Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut!**
 
 Dalam CSS, margin, border, dan padding adalah tiga properti yang digunakan untuk mengatur layout dan tampilan elemen HTML.
 
-- Margin adalah ruang kosong di sekitar elemen HTML yang memisahkan elemen dari elemen lainnya. Margin dapat digunakan untuk mengatur jarak antara elemen dengan elemen lainnya.
-- Border adalah garis yang mengelilingi elemen HTML. Border dapat digunakan untuk mengatur ketebalan, gaya, dan warna garis yang mengelilingi elemen.
-- Padding adalah ruang kosong di dalam elemen HTML yang memisahkan konten dari border. Padding dapat digunakan untuk mengatur jarak antara konten dengan border.
-
-Cara Mengimplementasikan Margin, Border, dan Padding.
-
-Dalam css:
+-   Margin adalah ruang kosong di sekitar elemen HTML yang memisahkan elemen dari elemen lainnya. Margin dapat digunakan untuk mengatur jarak antara elemen dengan elemen lainnya.
+-   Border adalah garis yang mengelilingi elemen HTML. Border dapat digunakan untuk mengatur ketebalan, gaya, dan warna garis yang mengelilingi elemen.
+-   Padding adalah ruang kosong di dalam elemen HTML yang memisahkan konten dari border. Padding dapat digunakan untuk mengatur jarak antara konten dengan border.
+    
+Cara Mengimplementasikan Margin, Border, dan Padding
 
 ```bash
-box {
-/* Margin */
-margin: 20px; /* mengatur jarak 20px dari elemen lainnya */
+box  {
+/*  Margin  */
+margin:  20px; /*  mengatur  jarak  20px  dari  elemen  lainnya  */
 
-/* Border */
-border: 1px solid #000; /* mengatur ketebalan 1px, gaya solid, dan warna hitam */
+/*  Border  */
+border:  1px  solid  #000; /* mengatur ketebalan 1px, gaya solid, dan warna hitam */
 
-/* Padding */
-padding: 10px; /* mengatur jarak 10px dari konten dengan border */
+/*  Padding  */
+padding:  10px; /*  mengatur  jarak  10px  dari  konten  dengan  border  */
 ```
+Dalam contoh di atas, saya mengatur margin 20px, border dengan ketebalan 1px, gaya solid, dan warna hitam, serta padding 10px untuk elemen dengan class .box.
 
-Dalam contoh di atas, kita mengatur margin 20px, border dengan ketebalan 1px, gaya solid, dan warna hitam, serta padding 10px untuk elemen dengan class .box.
 
 **Jelaskan konsep flex box dan grid layout beserta kegunaannya**
 
-### Flexbox (Flexible Box Layout)
+Flexbox (Flexible Box Layout)
 
 Flexbox adalah metode CSS yang dirancang untuk membuat tata letak yang lebih fleksibel dan responsif dalam satu dimensi, baik horizontal (baris) atau vertikal (kolom). Flexbox memungkinkan elemen-elemen dalam container (flex container) untuk disusun dan disesuaikan dengan mudah sesuai dengan ruang yang tersedia.
 
-#### Cara Kerja Flexbox:
-
+Cara Kerja Flexbox:
 Flexbox beroperasi berdasarkan dua komponen utama:
-
-- Flex Container: Elemen yang mengandung elemen-elemen lain yang disebut Flex Items. Container ini diatur menggunakan display: flex;.
-- Flex Items: Elemen-elemen di dalam flex container yang disusun sesuai dengan aturan Flexbox.
+-   Flex Container: Elemen yang mengandung elemen-elemen lain yang disebut Flex Items. Container ini diatur menggunakan display: flex;.
+-   Flex Items: Elemen-elemen di dalam flex container yang disusun sesuai dengan aturan Flexbox.
+    
 
 Beberapa properti dalam Flexbox:
-
-- flex-direction: Mengatur arah susunan elemen. Bisa dalam arah baris (default: row) atau kolom (column).
-- justify-content: Mengatur bagaimana elemen-elemen dalam flex container diatur secara horizontal (misal: center, space-between, flex-end).
-- align-items: Mengatur perataan elemen secara vertikal (misal: stretch, center, flex-start).
-- flex-wrap: Mengatur apakah elemen akan dipaksa berada dalam satu baris atau dapat dilipat ke baris berikutnya jika ruang tidak mencukupi.
+-   flex-direction: Mengatur arah susunan elemen. Bisa dalam arah baris (default: row) atau kolom (column).
+-   justify-content: Mengatur bagaimana elemen-elemen dalam flex container diatur secara horizontal (misal: center, space-between, flex-end).
+-   align-items: Mengatur perataan elemen secara vertikal (misal: stretch, center, flex-start).
+-   flex-wrap: Mengatur apakah elemen akan dipaksa berada dalam satu baris atau dapat dilipat ke baris berikutnya jika ruang tidak mencukupi.
+    
 
 Kegunaan Flexbox:
+-   Memudahkan dalam pengaturan elemen yang fleksibel dan responsif, terutama ketika elemen-elemen perlu menyesuaikan ruang yang tersedia.
+-   Setiap elemen dalam flex container dapat memiliki ukuran yang dinamis, tergantung pada konten atau pengaturan tata letak.
+-   Cocok untuk membuat elemen-elemen menyesuaikan diri di dalam container yang berubah ukurannya, seperti pada tampilan responsif.
+    
 
-- Memudahkan dalam pengaturan elemen yang fleksibel dan responsif, terutama ketika elemen-elemen perlu menyesuaikan ruang yang tersedia.
-- Setiap elemen dalam flex container dapat memiliki ukuran yang dinamis, tergantung pada konten atau pengaturan tata letak.
-- Cocok untuk membuat elemen-elemen menyesuaikan diri di dalam container yang berubah ukurannya, seperti pada tampilan responsif.
-
-### Grid Layout
-
+Grid Layout
+ 
 Grid Layout adalah metode CSS yang memungkinkan tata letak dalam dua dimensi (baris dan kolom). Dengan Grid Layout, elemen-elemen web dapat diatur lebih terstruktur dengan menggunakan grid, seperti tabel, tetapi dengan lebih banyak fleksibilitas.
 
-#### Cara Kerja Grid Layout:
-
+Cara Kerja Grid Layout:
 Grid Layout memungkinkan untuk membuat grid yang terdiri dari kolom dan baris, di mana setiap elemen dapat ditempatkan secara presisi.
 
 Beberapa properti penting dalam Grid Layout:
-
-- display: grid;: Mengaktifkan mode Grid pada container.
-- grid-template-columns dan grid-template-rows: Mengatur berapa banyak kolom dan baris yang akan dimiliki grid, serta ukuran masing-masing kolom dan baris.
-- grid-column dan grid-row: Mengatur posisi elemen dalam grid, misalnya elemen mana yang menempati kolom pertama atau baris kedua.
-- grid-gap atau gap: Memberikan jarak antara baris dan kolom dalam grid.
+-   display: grid: Mengaktifkan mode Grid pada container.
+-   grid-template-columns dan grid-template-rows: Mengatur berapa banyak kolom dan baris yang akan dimiliki grid, serta ukuran masing-masing kolom dan baris.
+-   grid-column dan grid-row: Mengatur posisi elemen dalam grid, misalnya elemen mana yang menempati kolom pertama atau baris kedua.
+-   grid-gap atau gap: Memberikan jarak antara baris dan kolom dalam grid.
+    
 
 Kegunaan Grid Layout:
-
-- Mempermudah pembuatan tata letak yang lebih terstruktur, di mana elemen-elemen bisa ditempatkan dalam beberapa baris dan kolom.
-- Fleksibilitas tinggi dalam mengatur ukuran dan penempatan elemen sesuai dengan grid yang telah ditentukan.
-- Grid sangat ideal untuk membuat halaman web yang memiliki banyak bagian dengan susunan yang simetris dan teratur.
+-   Mempermudah pembuatan tata letak yang lebih terstruktur, di mana elemen-elemen bisa ditempatkan dalam beberapa baris dan kolom.
+-   Fleksibilitas tinggi dalam mengatur ukuran dan penempatan elemen sesuai dengan grid yang telah ditentukan.
+-   Grid sangat ideal untuk membuat halaman web yang memiliki banyak bagian dengan susunan yang simetris dan teratur.
+    
 
 **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!**
 
-### Implementasikan fungsi untuk menghapus dan mengedit product.
 
-### Implementasi Fitur Edit Product
+**Implementasikan fungsi untuk menghapus dan mengedit product.**
 
+Implementasi Fitur Edit Product
 Untuk menambahkan fitur edit produk pada aplikasi, saya memulai dengan membuka berkas views.py yang terletak di subdirektori main. Di sini, saya membuat fungsi baru bernama edit_product yang menerima dua parameter: request dan id. Fungsi ini bertujuan untuk mengambil entri product berdasarkan ID yang diberikan. Saya menggunakan Product.objects.get(pk=id) untuk mendapatkan entri tersebut. Setelah itu, saya membuat instance dari ProductEntryForm, dengan mengisi data yang telah diambil sebelumnya. Ini memungkinkan form untuk menampilkan data yang sudah ada sehingga pengguna dapat mengeditnya.
 
 Selanjutnya, saya menambahkan logika untuk memproses pengiriman form. Jika form valid dan metode yang digunakan adalah POST, saya menyimpan perubahan dengan memanggil form.save(), dan mengarahkan kembali pengguna ke halaman utama dengan menggunakan HttpResponseRedirect(reverse('main:show_main')). Jika form tidak valid atau metode bukan POST, saya menyiapkan konteks yang berisi form untuk ditampilkan pada template edit_product.html. Akhirnya, saya merender template dengan mengirimkan konteks yang telah disiapkan.
 
 Setelah itu, saya perlu menambahkan import yang diperlukan di bagian atas berkas views.py, yaitu from django.shortcuts import render, reverse dan from django.http import HttpResponseRedirect. Ini penting agar fungsi yang saya buat dapat bekerja dengan baik dan dapat mengakses fitur-fitur yang diperlukan dari Django.
 
-### Implementasi Template Edit Product
-
+Implementasi Template Edit Product
 Langkah selanjutnya adalah membuat berkas template baru bernama edit_product.html di subdirektori main/templates. Dalam berkas ini, saya menggunakan sintaks templating Django untuk memperluas base.html. Di dalam blok konten, saya membuat form yang menggunakan metode POST. Form ini dilengkapi dengan token CSRF untuk keamanan. Saya memanfaatkan {{ form.as_table }} untuk menampilkan field dari form dalam format tabel, dan menambahkan tombol submit untuk mengedit product.
 
-### Penambahan URL untuk Edit Product
+Penambahan URL untuk Edit Product
+Selanjutnya, saya membuka berkas urls.py yang terletak di direktori main untuk menambahkan rute yang akan mengarahkan pengguna ke fungsi edit_product yang baru saja saya buat. Saya mengimpor fungsi tersebut menggunakan from main.views import edit_product. Kemudian, saya menambahkan path baru ke dalam urlpatterns, yang memungkinkan akses ke fungsi edit_product dengan URL yang sesuai, misalnya path('edit-product/<uuid:id>', edit_product, name='edit_product'). 
 
-Selanjutnya, saya membuka berkas urls.py yang terletak di direktori main untuk menambahkan rute yang akan mengarahkan pengguna ke fungsi edit_product yang baru saja saya buat. Saya mengimpor fungsi tersebut menggunakan from main.views import edit_product. Kemudian, saya menambahkan path baru ke dalam urlpatterns, yang memungkinkan akses ke fungsi edit_product dengan URL yang sesuai, misalnya path('edit-product/<uuid:id>', edit_product, name='edit_product'). Penting untuk memastikan tipe data ID yang digunakan sesuai dengan model ProductEntry.
+Penambahan Tombol Edit di Box Product
+Setelah menyiapkan fitur edit, saya melanjutkan dengan membuka berkas card_product.html. Di sini, saya menambahkan tombol Edit pada box product yang menampilkan terkait informasi product tertentu. Dengan menambahkan potongan kode yang sesuai, saya memastikan bahwa tombol tersebut mengarahkan pengguna ke halaman edit product dengan menyertakan primary key dari entri yang bersangkutan dalam URL. Saya menggunakan sintaks {% url 'main:edit_product' product.pk %} untuk membangun URL yang dinamis.
 
-### Penambahan Tombol Edit di Box Product
+Implementasi Fitur Hapus Product
+Pertama, saya membuat fungsi baru bernama delete_product di views.py. Fungsi ini juga menerima parameter request dan id, dan berfungsi untuk menghapus entri product berdasarkan ID yang diberikan. Dalam fungsi ini, saya memanggil ProductEntry.objects.get(pk=id) untuk mengambil entri product yang akan dihapus, dan kemudian memanggil metode delete() pada objek tersebut untuk menghapusnya dari database. Setelah penghapusan berhasil, saya mengarahkan pengguna kembali ke halaman utama.
 
-Setelah menyiapkan fitur edit, saya melanjutkan dengan membuka berkas card_product.htm. Di sini, saya menambahkan tombol Edit pada box product yang menampilkan terkait informasi product tertentu. Dengan menambahkan potongan kode yang sesuai, saya memastikan bahwa tombol tersebut mengarahkan pengguna ke halaman edit product dengan menyertakan primary key dari entri yang bersangkutan dalam URL. Saya menggunakan sintaks {% url 'main:edit_product' product.pk %} untuk membangun URL yang dinamis.
-
-### Implementasi Fitur Hapus Product
-
-Setelah berhasil mengimplementasikan fitur edit, saya beralih ke implementasi fitur hapus product. Pertama, saya membuat fungsi baru bernama delete_product di views.py. Fungsi ini juga menerima parameter request dan id, dan berfungsi untuk menghapus entri product berdasarkan ID yang diberikan. Dalam fungsi ini, saya memanggil ProductEntry.objects.get(pk=id) untuk mengambil entri product yang akan dihapus, dan kemudian memanggil metode delete() pada objek tersebut untuk menghapusnya dari database. Setelah penghapusan berhasil, saya mengarahkan pengguna kembali ke halaman utama.
-
-### Penambahan URL untuk Hapus Product
-
+Penambahan URL untuk Hapus Product
 Saya kemudian membuka kembali berkas urls.py untuk mengimpor fungsi delete_product yang telah saya buat, dan menambahkan path baru untuk mengakses fungsi ini, mirip dengan proses yang saya lakukan untuk fungsi edit_product.
 
-### Penambahan Tombol Hapus di Box Product
-
+Penambahan Tombol Hapus di Box Product
 Untuk melengkapi implementasi ini, saya membuka kembali berkas card_product.html dan menambahkan tombol Hapus pada box product yang menampilkan terkait informasi product tertentu. Saya menggunakan sintaks {% url 'main:delete_product' product.pk %} untuk membangun URL untuk fungsi hapus, sehingga pengguna dapat menghapus entri product yang diinginkan dengan mudah.
+
+  
+**Kustomisasi halaman login, register, dan tambah product semenarik mungkin.**
+Pada halaman login, saya menggunakan Tailwind untuk mengatur warna latar belakang halaman dan elemen form gray-100, serta memastikan responsivitasnya dengan kelas seperti flex, justify-center, dan items-center. Saya menambahkan margin dan padding yang tepat menggunakan utilitas py, px, dan mt untuk mengatur jarak antar elemen sehingga tampilannya lebih rapi dan terstruktur. Pada bagian input form seperti username dan password, saya menggunakan Tailwind untuk memberi warna placeholder dan efek hover yang memperjelas interaksi pengguna, dan pada tombol Sign-in saya juga memberikan background dan efek hover.
+
+Pada halaman register, elemen-elemen form ditempatkan secara terpusat dengan memanfaatkan fitur flex, items-center, dan justify-center, yang membuat tampilan lebih rapi dan seimbang. Latar belakang halaman menggunakan warna (bg-gray-100) untuk membuat elemen form yang dibatasi oleh border abu-abu (border-gray-300) dan latar belakang putih (bg-white). Saya juga menambahkan judul form dengan ukuran teks yang besar (text-3xl font-extrabold) serta jarak antar field input yang rapi menggunakan mt-4, sehingga pengguna dapat dengan mudah memahami dan mengisi setiap bagian form.
+
+Selain itu, saya menampilkan pesan error menggunakan teks merah (text-red-600) dan ikon peringatan berbentuk svg di sebelah kanan input yang memiliki error. Tombol submit (Register) didesain dengan warna bg-cyan-400 yang berubah menjadi lebih gelap saat di-hover. Terakhir, saya menyertakan link ke halaman login bagi pengguna yang sudah memiliki akun, dengan gaya teks biru yang lebih terang saat di-hover (hover:text-blue-500), untuk memudahkan navigasi.
+
+Pada halaman tambah produk,  saya membuat judul dengan ukuran teks besar (text-3xl font-bold) agar pengguna segera mengetahui fungsi halaman. Bagian utama dari form ditempatkan di dalam container yang memiliki padding dan jarak yang cukup besar untuk memastikan setiap elemen mudah diakses dan terlihat rapi. Elemen input dari form masing-masing diberi label yang jelas dengan teks font-semibold, memastikan bahwa pengguna bisa mengerti fungsi dari setiap field. Selain itu, form diatur menggunakan sistem kolom (flex flex-col), sehingga setiap input diletakkan vertikal satu per satu untuk memudahkan pengisian.
+
+Saya juga menambahkan pesan kesalahan (jika ada) yang ditampilkan dalam warna merah (text-red-600) dibawah input yang salah, serta teks bantuan (help_text) yang muncul dengan warna abu-abu terang (text-gray-500). Tombol submit pada halaman ini menggunakan warna bg-cyan-400 yang akan berubah menjadi lebih gelap saat pengguna meng-hover tombol tersebut.
+
+**Kustomisasi halaman daftar product menjadi lebih menarik dan responsive. Kemudian, perhatikan kondisi berikut:**
+
+**Jika pada aplikasi belum ada product yang tersimpan, halaman daftar product akan menampilkan gambar dan pesan bahwa belum ada product yang terdaftar.**
+
+Pertama, dalam menangani situasi ketika tidak ada produk yang tersimpan, saya menggunakan struktur kondisi yang mengandalkan Django template tags. Dengan menggunakan {% if not products %}, saya memastikan bahwa jika belum ada produk yang terdaftar, halaman akan menampilkan gambar sedih yang diambil dari folder static/image dan pesan yang sesuai. Di bagian ini, saya menciptakan elemen dengan class flex, flex-col, items-center, dan justify-center, yang membantu menyusun konten secara vertikal di tengah halaman. Gambar dan teks diletakkan dalam div dengan padding yang cukup (p-6) agar tampak lebih rapi dan terpusat.
+
+Ketika produk tersedia, saya menggunakan grid untuk menampilkan detail setiap produk dengan cara yang menarik. Saya menggunakan {% for product in products %} untuk mengulangi setiap produk dan menyertakan template card_product.html, yang mendefinisikan bagaimana setiap produk harus ditampilkan. Saya menggunakan grid Tailwind dengan pengaturan grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 yang memungkinkan tampilan produk beradaptasi dengan ukuran layar. Dengan cara ini, pada layar kecil, setiap produk akan ditampilkan satu per satu, sedangkan pada layar yang lebih besar, produk dapat ditampilkan dalam dua atau tiga kolom. Saya juga menggunakan kelas gap-6 untuk memberikan ruang antar card.  
+
+**Untuk setiap card product, buatlah dua buah button untuk mengedit dan menghapus product pada card tersebut!**  
+
+Pada template card_product.html, dua tombol utama untuk fungsi "Edit" dan "Delete" disusun dengan elemen a, yang berfungsi sebagai tautan dengan tampilan seperti tombol. Tombol "Edit" memiliki kelas bg-cyan-500 text-white rounded-lg py-2 px-4, yang menetapkan latar belakang berwarna cyan, teks putih, dan sudut membulat, serta memberikan padding vertikal (py-2) dan horizontal (px-4) untuk ukuran tombol yang sesuai. Lalu saya menambahkan hover:bg-cyan-600 yang mengubah warna latar belakang saat dihover, sementara hover:shadow-lg dan hover:-translate-y-1 menambahkan bayangan dan sedikit pergerakan vertikal. Tautan mengarah ke halaman edit produk melalui {% url 'main:edit_product' product.pk %} yang menghasilkan URL dinamis berdasarkan primary key produk.
+
+Tombol "Delete" memiliki struktur yang serupa dengan tombol "Edit", namun menggunakan warna merah dengan kelas bg-red-600. Saat dihover, kelas hover:bg-red-700 mengganti warna latar belakang menjadi lebih gelap. Kelas-kelas yang digunakan seperti rounded-lg, py-2 px-4, dan shadow-md memastikan bahwa kedua tombol memiliki ukuran dan gaya yang konsisten, namun dengan skema warna yang berbeda. Selain itu, setiap tombol dilengkapi dengan aria-label, misalnya aria-label="Edit {{ product.name }}", yang menambah elemen aksesibilitas untuk pengguna pembaca layar, memberikan penjelasan yang lebih informatif mengenai tombol dan fungsinya.
+
+Kedua tombol ini diletakkan dalam div dengan kelas flex justify-around items-center mt-4, yang memberikan penataan yang rapi dan memastikan bahwa kedua tombol terpisah dengan jarak yang cukup untuk meningkatkan keterbacaan dan aksesibilitas. 
+
+**Buatlah navigation bar (navbar) untuk fitur-fitur pada aplikasi yang responsive terhadap perbedaan ukuran device, khususnya mobile dan desktop.**
+
+Navbar saya implementasikan pada navbar.html. navbar.html saya buat pada direktori templates yang global, agar navbar dapat diakses oleh seluruh halaman yang ada (bukan hanya pada app main). Pada bagian atas, kelas bg-gradient-to-r from-cyan-500 to-purple-500 memberikan efek gradient dari warna cyan ke ungu, sementara shadow-lg menambahkan bayangan. Dengan pengaturan fixed top-0 left-0 z-40 w-screen, navbar tetap terlihat di bagian atas layar saat pengguna menggulir (scroll) halaman, memberikan akses cepat ke menu navigasi.
+
+Lalu saya menggunakan kelas flex, items-center, dan justify-between untuk menyusun elemen dalam navbar. Kelas max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 membatasi lebar maksimum navbar dan memusatkan kontennya. Untuk menjadikan navbar responsif, saya menerapkan kelas hidden md:flex pada bagian tautan navigasi desktop. Ini berarti tautan tersebut hanya akan ditampilkan pada perangkat dengan ukuran medium (md) dan lebih besar, sementara pada perangkat kecil, tautan tersebut disembunyikan. Sebagai gantinya, menu mobile yang lebih sederhana ditampilkan dengan mobile-menu, yang juga menggunakan kelas hidden md:hidden agar tidak terlihat pada layar lebih besar.
+
+Pada bagian autentikasi pengguna, saya menggunakan conditional rendering dengan sintaks Django templating {% if user.is_authenticated %} untuk menampilkan pesan sambutan dan tombol logout jika pengguna sudah masuk. Jika tidak, tombol login dan registrasi akan ditampilkan. Tombol menu mobile, yang ditandai dengan ikon burger dalam SVG JavaScript sederhana juga ditambahkan untuk menangani toggle kelas hidden pada menu mobile saat tombol ditekan.
 
 </details>
