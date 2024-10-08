@@ -403,3 +403,53 @@ Lalu saya menggunakan kelas flex, items-center, dan justify-between untuk menyus
 Pada bagian autentikasi pengguna, saya menggunakan conditional rendering dengan sintaks Django templating {% if user.is_authenticated %} untuk menampilkan pesan sambutan dan tombol logout jika pengguna sudah masuk. Jika tidak, tombol login dan registrasi akan ditampilkan. Tombol menu mobile, yang ditandai dengan ikon burger dalam SVG JavaScript sederhana juga ditambahkan untuk menangani toggle kelas hidden pada menu mobile saat tombol ditekan.
 
 </details>
+
+<details>
+  <summary>TUGAS 6</summary>
+  
+**Jelaskan manfaat dari penggunaan JavaScript dalam pengembangan aplikasi web\!**  
+JavaScript memiliki peran yang sangat penting dalam pengembangan aplikasi web karena kemampuannya untuk berjalan di sisi klien (client-side), memungkinkan interaktivitas tinggi dan pengalaman pengguna yang responsif. Dengan JavaScript, elemen pada halaman web dapat diperbarui secara dinamis tanpa perlu memuat ulang seluruh halaman, berkat teknologi seperti AJAX dan Fetch API. JavaScript juga memungkinkan manipulasi DOM secara langsung, membuatnya mudah untuk mengubah struktur, konten, atau gaya halaman secara real-time. Selain itu, ekosistem JavaScript yang luas dengan banyak framework dan library, seperti React, Angular, dan Vue, memfasilitasi pengembangan aplikasi web yang skalabel dan efisien. Di sisi server, dengan adanya Node.js, JavaScript juga memungkinkan pengembang untuk menggunakan bahasa yang sama untuk front-end dan back-end, menyederhanakan alur kerja dan kolaborasi tim. Fleksibilitas dan kapabilitas lintas platformnya menjadikannya pilihan utama dalam pengembangan aplikasi web modern.
+
+**Jelaskan fungsi dari penggunaan `await` ketika kita menggunakan `fetch()`\! Apa yang akan terjadi jika kita tidak menggunakan `await`?**
+
+Fungsi `await` ketika digunakan dengan `fetch()` adalah untuk menunggu hasil dari *promise* yang dikembalikan oleh `fetch()` sebelum melanjutkan ke baris kode berikutnya. `fetch()` bekerja secara asinkron, artinya akan segera mengembalikan *promise* yang menunggu respons dari server, tanpa menghentikan eksekusi kode. Dengan `await`, kita bisa menunggu hingga respons diterima dan diproses sebelum melanjutkan, sehingga kita bisa bekerja dengan data yang sudah tersedia.
+
+Jika kita tidak menggunakan `await`, kode akan terus berjalan tanpa menunggu hasil dari `fetch()`, sehingga kita mungkin mencoba menggunakan data yang belum siap (karena *promise* belum terselesaikan). Ini dapat menyebabkan perilaku tak terduga atau *errors* karena data belum diambil ketika kode lain mencoba mengaksesnya.
+
+**Mengapa kita perlu menggunakan *decorator* `csrf_exempt` pada *view* yang akan digunakan untuk AJAX `POST`?**
+
+Kita perlu menggunakan decorator `@csrf_exempt` pada view yang digunakan untuk AJAX POST karena mekanisme *Cross-Site Request Forgery* (CSRF) di Django secara default mengharuskan setiap permintaan POST, termasuk AJAX, menyertakan token CSRF yang valid sebagai tindakan keamanan. Token ini digunakan untuk memastikan bahwa permintaan yang dikirim berasal dari sumber yang sah, bukan dari situs lain yang mencoba melakukan serangan CSRF.
+
+Namun, dalam beberapa kasus, terutama saat menangani permintaan AJAX POST dari sumber eksternal atau ketika kita tidak mengirimkan token CSRF, Django akan menolak permintaan POST jika tidak ada token CSRF atau jika token tersebut tidak valid. Untuk mencegah pemeriksaan CSRF pada view tertentu, kita bisa menambahkan decorator `@csrf_exempt`, yang memberitahu Django agar tidak memverifikasi token CSRF untuk permintaan tersebut. 
+
+**Pada tutorial PBP minggu ini, pembersihan data *input* pengguna dilakukan di belakang (*backend*) juga. Mengapa hal tersebut tidak dilakukan di *frontend* saja?**
+
+Pembersihan data input pengguna perlu dilakukan di backend karena backend adalah tempat yang lebih aman dan andal untuk validasi, meskipun kita bisa melakukan validasi di frontend. Validasi di frontend bisa dimanipulasi oleh pengguna yang mencoba menghindari aturan atau melakukan serangan berbahaya, seperti mengubah kode JavaScript atau mematikan validasi browser. Oleh karena itu, backend harus selalu memverifikasi dan membersihkan data untuk memastikan keamanan aplikasi, mencegah serangan seperti *SQL Injection* atau *XSS* (Cross-Site Scripting), serta menjaga integritas data. Dengan melakukan validasi di backend, kita memastikan bahwa data yang diproses oleh server selalu valid dan aman.
+
+**Jelaskan bagaimana cara kamu mengimplementasikan *checklist* di atas secara *step-by-step* (bukan hanya sekadar mengikuti tutorial)\!**
+
+**Ubahlah kode `cards` data *mood* agar dapat mendukung AJAX `GET`.**
+
+Saya mengimplementasikan AJAX GET untuk mendukung pengambilan data produk dengan mengubah beberapa bagian kode pada file `views.py`. Pertama, saya menghapus kode yang mengirimkan data produk langsung ke template, dan menggantinya dengan endpoint `show_json` yang mengembalikan data produk dalam format JSON. Dalam fungsi `show_json`, saya menggunakan `Product.objects.filter(user=request.user)` untuk mengambil produk yang dimiliki oleh pengguna yang sedang login dan mengembalikannya dalam format JSON menggunakan `HttpResponse`. Selanjutnya, di frontend, pada file `main.html`, saya menambahkan div dengan ID `product_entry_cards` untuk menampung data produk. Saya membuat fungsi `getMoodEntries()` yang menggunakan `fetch()` untuk mengambil data dari endpoint `show_json`. Fungsi ini kemudian dipanggil oleh `refreshProductEntries()`, yang memeriksa apakah ada produk yang diterima. Jika tidak ada produk, pesan "Belum ada produk" akan ditampilkan; jika ada, data produk ditampilkan dalam format kartu (card) dengan menggunakan template string untuk membangun HTML secara dinamis. 
+
+**Lakukan pengambilan data *mood* menggunakan AJAX `GET`. Pastikan bahwa data yang diambil hanyalah data milik pengguna yang *logged-in*.**  
+Pada fungsi `show_json` di file `views.py`, pemfilteran data dilakukan dengan sintaks `data = Product.objects.filter(user=request.user)`, yang mengambil semua objek `Product` yang terasosiasi dengan pengguna yang sedang login (diwakili oleh `request.user`). Dengan cara ini, hanya entri produk yang dimiliki oleh pengguna yang terautentikasi yang akan diambil dari basis data. Dalam skrip JavaScript pada `main.html`, implementasi pengambilan data mood menggunakan AJAX GET dapat dilakukan dengan memanfaatkan fungsi `getProductEntries()`, yang menggunakan metode `fetch()` untuk mengakses URL yang ditentukan oleh Django (melalui `{% url 'main:show_json' %}`). Fungsi ini mengharuskan server untuk mengembalikan data dalam format JSON, yang kemudian diolah menjadi objek JavaScript menggunakan `.json()`. Setelah data diterima, fungsi `refreshProductEntries()` memanggil `getProductEntries()` untuk memperbarui tampilan dengan memasukkan data ke dalam elemen HTML yang sesuai, yang hanya akan menampilkan entri produk milik pengguna yang terautentikasi.
+
+### **Buatlah fungsi *view* baru untuk menambahkan *mood* baru ke dalam basis data.**
+
+Saya membuat fungsi `add_product_entry_ajax` dalam file `views.py`. Fungsi ini bertugas untuk menangani permintaan POST yang dikirimkan dari klien (frontend) ketika pengguna ingin menambahkan produk baru. Sintaks `@csrf_exempt` dan `@require_POST` digunakan untuk memastikan bahwa fungsi ini hanya bisa diakses melalui permintaan POST dan juga untuk menonaktifkan perlindungan CSRF untuk keperluan pengujian (meskipun sebaiknya menggunakan perlindungan CSRF dalam aplikasi nyata). Di dalam fungsi, saya menggunakan `request.POST.get()` untuk mengambil data harga, kuantitas, dan deskripsi dari form yang dikirimkan. Setelah itu, produk baru dibuat dengan menggunakan model `Product`, yang merupakan representasi dari tabel produk dalam database, dan disimpan dengan metode `save()`. Fungsi ini mengembalikan respons HTTP dengan status 201 (CREATED) sebagai tanda bahwa produk baru berhasil ditambahkan.
+
+**Buatlah *path* `/create-ajax/` yang mengarah ke fungsi *view* yang baru kamu buat.**
+
+Pada file `urls.py`, dalam konteks penambahan produk melalui AJAX, saya menambahkan path baru menggunakan fungsi `path()`. Sintaks `path('create-product-entry-ajax', add_product_entry_ajax, name='add_product_entry_ajax')` ini menetapkan rute untuk URL `/create-product-entry-ajax`, yang akan memanggil fungsi `add_product_entry_ajax` dari `main.views` ketika URL tersebut diakses. Dengan menggunakan `name='add_product_entry_ajax'`, saya memberikan nama pada rute ini, sehingga dapat dirujuk di dalam template dan JavaScript kode saya.
+
+### **Hubungkan form yang telah kamu buat di dalam modal kamu ke *path* `/create-ajax/`.**
+
+Dalam `main.html`, saya menghubungkan form `#productEntryForm` ke path `/create-ajax/` dengan menggunakan `fetch` di fungsi JavaScript `addProductEntry()`. Fungsi ini memanggil endpoint yang telah saya buat dengan menggunakan method POST, mengirimkan data form yang diambil melalui `new FormData(document.querySelector('#productEntryForm'))`. Sintaks `fetch("{% url 'main:add_product_entry_ajax' %}", {...})` mengarahkan permintaan ke URL yang sesuai dengan nama yang telah ditentukan dalam `urls.py`. Setelah produk berhasil ditambahkan, form akan direset, dan modal akan ditutup.
+
+### **Lakukan *refresh* pada halaman utama secara asinkronus untuk menampilkan daftar *mood* terbaru tanpa reload halaman utama secara keseluruhan.**
+
+Untuk menampilkan daftar produk terbaru tanpa me-reload halaman utama, saya menggunakan fungsi `refreshProductEntries()`. Dalam fungsi ini, saya memanggil `getProductEntries()` yang mengirimkan permintaan ke endpoint `show_json`. Setelah menerima respons berupa data produk dalam format JSON, saya mengupdate elemen HTML dengan ID `product_entry_cards` untuk menampilkan daftar produk yang baru. Proses ini dilakukan dengan mengosongkan elemen HTML terlebih dahulu, kemudian membangun string HTML baru berdasarkan data yang diterima, dan akhirnya menetapkan `innerHTML` elemen tersebut. 
+
+
+</details>

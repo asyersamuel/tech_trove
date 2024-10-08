@@ -12,15 +12,17 @@ from main.models import Product
 from django.http import HttpResponse
 from django.core import serializers
 
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_POST
+from django.utils.html import strip_tags
+
 @login_required(login_url='/login')
 def show_main(request):
-    products = Product.objects.filter(user=request.user)
 
     context = {
         "store_name" : "Tech Trove",
         'name': request.user.username,
         "class" : "PBP A",
-        "products" : products,
         'last_login': request.COOKIES['last_login'],
     }
 
@@ -39,11 +41,11 @@ def product_entry(request):
     return render(request, "product_entry.html", context)
 
 def show_xml(request):
-    data = Product.objects.all()
+    data = Product.objects.filter(user=request.user)
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
 
 def show_json(request):
-    data = Product.objects.all()
+    data = Product.objects.filter(user=request.user)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 def show_xml_by_id(request, id):
@@ -104,3 +106,21 @@ def delete_product(request, id):
     product.delete()
 
     return HttpResponseRedirect(reverse('main:show_main'))
+
+
+
+@csrf_exempt
+@require_POST
+def add_product_entry_ajax(request):
+    user = request.user
+    name = strip_tags(request.POST.get("name"))
+    price = request.POST.get("price")
+    quantity = request.POST.get("quantity")
+    description = strip_tags(request.POST.get("description")) 
+
+    new_product = Product(
+        name=name, price=price, quantity=quantity, description=description, user=user
+    )
+    new_product.save()
+
+    return HttpResponse(b"CREATED", status=201)
