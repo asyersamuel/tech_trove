@@ -14,3 +14,5 @@ class ProductEntryForm(ModelForm):
     def clean_description(self):
         description = self.cleaned_data["description"]
         return strip_tags(description)
+    
+

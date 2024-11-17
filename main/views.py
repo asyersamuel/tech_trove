@@ -11,10 +11,11 @@ from main.forms import ProductEntryForm
 from main.models import Product
 from django.http import HttpResponse
 from django.core import serializers
-
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 from django.utils.html import strip_tags
+from django.http import JsonResponse
+import json
 
 @login_required(login_url='/login')
 def show_main(request):
@@ -25,7 +26,6 @@ def show_main(request):
         "class" : "PBP A",
         'last_login': request.COOKIES['last_login'],
     }
-
     return render(request, "main.html", context)
 
 def product_entry(request):
@@ -56,10 +56,8 @@ def show_json_by_id(request, id):
     data = Product.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
-
 def register(request):
     form = UserCreationForm()
-
     if request.method == "POST":
         form = UserCreationForm(request.POST)
         if form.is_valid():
@@ -78,7 +76,6 @@ def login_user(request):
             response = HttpResponseRedirect(reverse("main:show_main"))
             response.set_cookie('last_login', str(datetime.datetime.now()))
             return response
-
    else:
       form = AuthenticationForm(request)
    context = {'form': form}
@@ -93,7 +90,7 @@ def logout_user(request):
 def edit_product(request, id):
     product = Product.objects.get(pk = id)
     form = ProductEntryForm(request.POST or None, instance=product)
-
+    
     if form.is_valid() and request.method == "POST":
         form.save()
         return HttpResponseRedirect(reverse('main:show_main'))
@@ -106,7 +103,6 @@ def delete_product(request, id):
     product.delete()
 
     return HttpResponseRedirect(reverse('main:show_main'))
-
 
 
 @csrf_exempt
@@ -124,3 +120,22 @@ def add_product_entry_ajax(request):
     new_product.save()
 
     return HttpResponse(b"CREATED", status=201)
+
+@csrf_exempt
+def create_product_flutter(request):
+    if request.method == 'POST':
+
+        data = json.loads(request.body)
+        new_mood = Product.objects.create(
+            user=request.user,
+            name=data["name"],
+            price=int(data["price"]),
+            quantity=int(data["quantity"]),
+            description=data["description"],
+        )
+
+        new_mood.save()
+
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        return JsonResponse({"status": "error"}, status=401)
